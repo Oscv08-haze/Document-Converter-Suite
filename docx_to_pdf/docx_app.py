@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, send_file
 import os
-from docx_to_pdf.logic.engine_pdf import add_pdf
+import io
+from logic.engine_pdf import add_pdf  
 from docx import Document
 
 app = Flask(__name__)
 
 @app.route('/')
-
 def casa():
     return render_template('index.html')
 
@@ -19,8 +19,17 @@ def convert():
         contenido = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
         nombre_base = os.path.splitext(archivo_docx.filename)[0]
         nombre_pdf = f"{nombre_base}.pdf"
+        
         add_pdf(contenido, nombre_pdf)
-        return send_file(nombre_pdf, as_attachment=True)
+        
+        return_data = io.BytesIO()
+        with open(nombre_pdf, 'rb') as f:
+            return_data.write(f.read())
+        return_data.seek(0)
+        
+        os.remove(nombre_pdf)
+        
+        return send_file(return_data, download_name=nombre_pdf, as_attachment=True)
 
     return "Archivo no válido. Por favor, suba un archivo .docx.", 400
 
