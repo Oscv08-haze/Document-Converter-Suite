@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, send_file
 import os
 import io
-from docx_to_pdf.logic.engine_pdf import add_pdf 
+from logic.engine_pdf import add_pdf 
 from docx import Document
 
 app = Flask(__name__)

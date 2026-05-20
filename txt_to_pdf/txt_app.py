@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file
 import os
-from txt_to_pdf.logic.motor_pdf import generar_pdf
+from logic.motor_pdf import generar_pdf
 
 app = Flask(__name__)
 
