@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"href="{{ url_for('txt_to_pdf.static', filename='style.css') }}">
+    <link rel="stylesheet"href="{{ url_for('docx_to_pdf.static', filename='style.css') }}">
     <title>Convertidor de Documentos</title>
 
 </head>
@@ -12,16 +12,16 @@
 <body>
     
     <div class="container">
-        <h1>Convertidor de Documentos TXT</h1>
+        <h1>Convertidor de Documentos DOCX</h1>
         <form action="/convert" method="post" enctype="multipart/form-data">
-            <input type="file" name="txt_file" accept=".txt" required>
+            <input type="file" name="docx_file" accept=".docx" required>
             <button type="submit">Convertir a PDF</button>
         </form>
     </div>
 
     <div class="instructions">
         <h2>Instrucciones</h2>
-        <p>1. Haga clic en el botón para seleccionar un archivo de texto (.txt) desde su computadora.</p>
+        <p>1. Haga clic en el botón para seleccionar un archivo de texto (.docx) desde su computadora.</p>
         <p>2. Después de seleccionar el archivo, se le pedirá que ingrese un nombre para el archivo PDF resultante. Si no ingresa un nombre, se usará el mismo nombre del archivo de texto con la extensión .pdf.</p>
         <p>3. El archivo PDF se generará y se descargará automáticamente en su computadora.</p>
     </div>
