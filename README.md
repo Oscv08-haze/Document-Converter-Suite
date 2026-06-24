@@ -4,9 +4,10 @@ Document conversion tools built with Flask.
 
 Currently includes:
 - TXT to PDF
+- DOCX to PDF
+- PDF to DOCX
 
 Planned:
-- DOCX to PDF
 - PDF to TXT
 - More converters
 
